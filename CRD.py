@@ -11,8 +11,11 @@ data = pd.read_csv('/home/emmanuel/Emmanuel/Work/Experiment Design/CRD.csv')
 # Base Variables
 N = data.shape[0] * data.shape[1]
 k = data.shape[0]
+CF = 0
+
 
 def crd_parameters(data):
+    global CF
     # Calculate Grand Total
     total_each_trt = []
     for col in data.columns:
@@ -65,4 +68,4 @@ def AnovaTable():
     
     return(Anova_Table)
 
-print(AnovaTable())
+# print(AnovaTable())

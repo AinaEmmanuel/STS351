@@ -68,4 +68,19 @@ def AnovaTable():
     
     return(Anova_Table)
 
-# print(AnovaTable())
+def results():
+    trt, err, tot = crd_parameters(data)
+    print('=='*30)
+    print('Important values')
+    print(
+f"""1. SStrt: {trt}
+2. SSerr: {err}
+3. SStot: {tot}
+4. Correction Factor: {CF}
+""")
+
+    print('=='*30)
+    print('ANOVA Table')
+    print(AnovaTable())
+
+results()

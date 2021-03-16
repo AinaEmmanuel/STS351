@@ -36,4 +36,29 @@ def crd_parameters(data):
 
     return(SStrt, SSerr, SStot)
 
-print(crd_parameters(data))
+def AnovaTable():
+    # Create ANOVA Table
+    Anova_Table = pd.DataFrame(columns=['Source of Variation', 'DoF', 'SoS', 'MoS', 'Fcal'])
+    
+    # Populate SoV with the appropriate parameters
+    Anova_Table['Source of Variation'] = ['Treatment', 'Error', 'Total']
+    Anova_Table.fillna('-', inplace=True)
+    
+    # Add the Degree of Freedom
+    Anova_Table['DoF'][0] = k-1
+    Anova_Table['DoF'][1] = N-k
+    Anova_Table['DoF'][2] = N-1
+    
+    # Populate Sum of Squares with the values gotten in the previous function
+    Anova_Table['SoS'] = crd_parameters(data)
+    
+    # Calculate the Mean of Squares
+    for x in range(0,2):
+        Anova_Table['MoS'][x] = Anova_Table.SoS[x]/Anova_Table.DoF[x]
+    
+    # Get Fcalculated
+    Anova_Table['Fcal'][0] = Anova_Table['MoS'][0]/Anova_Table['MoS'][1]
+    
+    return(Anova_Table)
+
+print(AnovaTable()

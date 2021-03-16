@@ -2,6 +2,10 @@
 import pandas as pd
 import numpy as np
 
+# Ignore Warnings
+import warnings
+warnings.filterwarnings("ignore")
+
 data = pd.read_csv('/home/emmanuel/Emmanuel/Work/Experiment Design/CRD.csv')
 
 # Base Variables
@@ -61,4 +65,4 @@ def AnovaTable():
     
     return(Anova_Table)
 
-print(AnovaTable()
+print(AnovaTable())

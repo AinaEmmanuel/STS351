@@ -71,7 +71,7 @@ def AnovaTable():
 def results():
     trt, err, tot = crd_parameters(data)
     print('=='*30)
-    print('\t\t\tImportant values')
+    print('\tImportant values For Completely Randomized Design')
     print(
 f"""1. SStrt: {trt}
 2. SSerr: {err}
@@ -80,7 +80,7 @@ f"""1. SStrt: {trt}
 """)
 
     print('=='*30)
-    print('\t\t\tANOVA Table')
+    print('\tANOVA Table For Completely Randomized Design\n')
     print(AnovaTable())
 
 results()

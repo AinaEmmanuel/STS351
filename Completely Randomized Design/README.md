@@ -1,6 +1,4 @@
-# STS351
-Statistics is boring, but Statistics + Coding = Fun. (Help! 😭😭😭)
-
+# Completely Randomized Design (CRD)
 
 ```
 # install dependencies

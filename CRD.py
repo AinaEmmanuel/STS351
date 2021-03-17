@@ -6,7 +6,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 
-data = pd.read_csv('/home/emmanuel/Emmanuel/Work/Experiment Design/CRD.csv')
+data = pd.read_csv('example.csv')
 
 # Base Variables
 N = data.shape[0] * data.shape[1]

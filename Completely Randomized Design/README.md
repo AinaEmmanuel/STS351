@@ -18,4 +18,4 @@ $ python CRD.py
 ```
 Expected Result
 
-![alt text](https://github.com/AinaEmmanuel/STS351/blob/main/output.png "Result")
+![alt text](https://github.com/AinaEmmanuel/STS351/blob/main/Completely%20Randomized%20Design/output.png "Result")

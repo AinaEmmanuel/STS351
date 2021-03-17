@@ -5,13 +5,18 @@ import numpy as np
 # Ignore Warnings
 import warnings
 warnings.filterwarnings("ignore")
-
-data = pd.read_csv('example.csv')
-
-# Base Variables
-N = data.shape[0] * data.shape[1]
-k = data.shape[0]
+data = pd.read_csv('example2.csv')
 CF = 0
+
+# Number of Treatments
+k = data.shape[1]
+
+# Number of Replication
+r = data.shape[0]
+
+# Total number of Units
+N = k*r
+
 
 
 def crd_parameters(data):
@@ -28,7 +33,7 @@ def crd_parameters(data):
     # Calculate the Sum of Square Treatment
     square_tot_trt = [val**2 for val in total_each_trt]
     sum_square_tot_trt = sum(square_tot_trt)
-    SStrt = round((sum_square_tot_trt/k) - CF, 1)
+    SStrt = round((sum_square_tot_trt/r) - CF, 1)
     
     # Calculate the Sum of Square Total
     all_units = []

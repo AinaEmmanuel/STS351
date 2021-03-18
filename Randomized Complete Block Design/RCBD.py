@@ -5,7 +5,7 @@ import numpy as np
 # Ignore Warnings
 import warnings
 warnings.filterwarnings("ignore")
-data = pd.read_csv('/home/emmanuel/Desktop/Randomized Complete Block Design/rcbd.csv')
+data = pd.read_csv('rcbd.csv')
 CF = 0
 
 # Number of Treatments

@@ -16,4 +16,4 @@ $ python RCBD.py
 ```
 Expected Result
 
-![alt text](https://github.com/AinaEmmanuel/STS351/blob/rcbd/Randomized%20Complete%20Block%20Design/output.png "Result")
+![alt text](https://github.com/AinaEmmanuel/STS351/blob/main/Randomized%20Complete%20Block%20Design/output.png"Result")

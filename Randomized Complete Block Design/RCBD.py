@@ -18,6 +18,7 @@ b = data.shape[0]
 N = t*b
 
 def rcbd_parameters(data):
+    global CF
     # Calculate Total for each Treatment
     total_each_trt = []
     for col in data.columns:
@@ -62,7 +63,7 @@ def rcbd_parameters(data):
     
     return SStrt, SSblk, SSerr, SStot
 
-def Anova_Table():
+def AnovaTable():
     # Create ANOVA Table
     Anova_Table = pd.DataFrame(columns=['Source of Variation', 'DoF', 'SoS', 'MoS', 'Fcal'])
 
@@ -91,4 +92,19 @@ def Anova_Table():
 
     return(Anova_Table)
 
-print(Anova_Table())
+def results():
+    trt,blk, err, tot = rcbd_parameters(data)
+    print('=='*30)
+    print('\tImportant values For Randomized Complete Block Design')
+    print(
+f"""1. SStrt: {trt}
+2. SSerr: {err}
+3. SStot: {tot}
+4. Correction Factor: {CF}
+""")
+
+    print('=='*30)
+    print('\tANOVA Table For Randomized Complete Block Design\n')
+    print(AnovaTable())
+
+results()

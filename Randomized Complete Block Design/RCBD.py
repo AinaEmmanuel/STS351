@@ -5,7 +5,7 @@ import numpy as np
 # Ignore Warnings
 import warnings
 warnings.filterwarnings("ignore")
-data = pd.read_csv('rcbd.csv')
+data = pd.read_csv('/home/emmanuel/Desktop/Randomized Complete Block Design/rcbd.csv')
 CF = 0
 
 # Number of Treatments
@@ -61,3 +61,34 @@ def rcbd_parameters(data):
     SSerr = SStot-SSblk-SStrt
     
     return SStrt, SSblk, SSerr, SStot
+
+def Anova_Table():
+    # Create ANOVA Table
+    Anova_Table = pd.DataFrame(columns=['Source of Variation', 'DoF', 'SoS', 'MoS', 'Fcal'])
+
+    # Populate SoV with the appropriate parameters
+    Anova_Table['Source of Variation'] = ['Treatment', 'Block', 'Error', 'Total']
+    Anova_Table.fillna('-', inplace=True)
+
+    # Add the Degree of Freedom
+    Anova_Table['DoF'][0] = t-1
+    Anova_Table['DoF'][1] = b-1
+    Anova_Table['DoF'][2] = (t-1)*(b-1)
+    Anova_Table['DoF'][3] = b*t - 1
+
+
+
+    # Populate Sum of Squares with the values gotten in the previous function
+    Anova_Table['SoS'] = rcbd_parameters(data)
+
+    # Calculate the Mean of Squares
+    for x in range(0,3):
+        Anova_Table['MoS'][x] = Anova_Table.SoS[x]/Anova_Table.DoF[x]
+
+    # Get Fcalculated
+    Anova_Table['Fcal'][0] = Anova_Table['MoS'][0]/Anova_Table['MoS'][2]
+    Anova_Table['Fcal'][1] = Anova_Table['MoS'][1]/Anova_Table['MoS'][2]
+
+    return(Anova_Table)
+
+print(Anova_Table())
